@@ -1,0 +1,13 @@
+AllCops:
+ NewCops: enable
+ Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+

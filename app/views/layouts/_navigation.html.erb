@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Zuwarka", root_path, class: "navbar-brand", id: "logo" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Articles", articles_path %></li>
+        <li><%= link_to "Create Article", new_article_path %></li>
+        <li><%= link_to "Users", users_path, class: "navbar-link" %></li>
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <% if user_signed_in? %>
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn-xs btn-danger my-nav-button", onclick: "return ask(\"Are you sure?\");" %>
+        <% else %>
+            <%= button_to "Sign up", new_user_registration_path, method: :get, class: "btn-xs btn-warning my-nav-button" %>
+            <%= button_to "Log in", new_user_session_path, method: :get, class: "btn-xs btn-success my-nav-button" %>
+        <% end %>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
