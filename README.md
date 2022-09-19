@@ -1,24 +1,7 @@
-# README
+# Homework по работе с Rails приложением
+Блог, созданный на RoR по статье: https://deallen7.medium.com/ruby-on-rails-app-build-blog-3d9975a999ae
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Данный блог создан с целью освоения и ознакомления с простыми инструментами RoR и деплоя
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Примечание
+Данный репозиторий является коипей RoR_blog_test. Создан с целью ознакомления работы с командами git
