@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show destroy]
   after_action :write_to_log
-  #before_action :authenticate_user!
 
   def new
     @article = Article.new
@@ -9,7 +8,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    # @article.user = User.first
     @article.user = User.find(session[:user_id]) unless session[:user_id].nil?
     if @article.save
       flash[:success] = "Article was successfully created"
@@ -43,7 +41,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.search(params[:search]).paginate(page: params[:page], per_page: 5)
+
     respond_to do |format|
       format.html
       format.pdf{
@@ -72,10 +71,11 @@ class ArticlesController < ApplicationController
     log = Log.create(
       remote_ip: request.remote_ip,
       request_method: request.method,
-      request_url: request.url
-      )
-    log.response_status = response.status
-    log.response_content_type = response.content_type
+      request_url: request.url,
+      response_status: response.status,
+      response_content_type: response.content_type
+    )
     log.save
   end
+
 end
