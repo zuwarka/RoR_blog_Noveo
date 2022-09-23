@@ -54,13 +54,12 @@ class Api::V1::ArticlesController < ApplicationController
   end
   # logging with log model
   def write_to_log
-    log = Log.create(
+    Log.create(
       remote_ip: request.remote_ip,
       request_method: request.method,
       request_url: request.url,
       response_status: response.status,
       response_content_type: response.content_type
     )
-    log.save
   end
 end
